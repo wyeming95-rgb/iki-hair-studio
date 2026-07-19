@@ -49,3 +49,4 @@ Task 7: complete (commits 4eedc9f..ea62796, review clean after 1 fix round)
     + preventDefault do not block context-menu "open in new tab". Now href=undefined when
     empty, symmetric with the WhatsApp CTA. Plan text already required BOTH disabled.
   - Verified: empty cart => 6 tabbable elements, neither CTA focusable.
+Task 8: complete (commits 37d822f..0bbddca, review clean, no fix round)
