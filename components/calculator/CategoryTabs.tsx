@@ -26,7 +26,7 @@ export function CategoryTabs({ categories, value, onChange }: CategoryTabsProps)
     <div
       role="tablist"
       aria-label="Service categories"
-      className="flex flex-wrap gap-x-6 gap-y-3 border-b border-cream/15 pb-4"
+      className="flex flex-wrap gap-x-6 gap-y-3 border-b border-ink/10 pb-4"
     >
       {categories.map((category, index) => {
         const selected = category.id === value;
@@ -44,8 +44,8 @@ export function CategoryTabs({ categories, value, onChange }: CategoryTabsProps)
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(category.id)}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`font-display text-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:text-2xl ${
-              selected ? 'text-gold' : 'text-cream/50 hover:text-cream'
+            className={`font-display text-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay md:text-2xl ${
+              selected ? 'text-clay' : 'text-muted hover:text-ink'
             }`}
           >
             {category.label}

@@ -38,7 +38,7 @@ export function OptionPicker({ category, onAdd }: OptionPickerProps) {
 
   return (
     <div className="space-y-8">
-      <p className="max-w-xl text-cream/60">{category.blurb}</p>
+      <p className="max-w-xl text-muted">{category.blurb}</p>
 
       <div className="grid gap-3 sm:grid-cols-2">
         {groups.map((g) => {
@@ -53,14 +53,16 @@ export function OptionPicker({ category, onAdd }: OptionPickerProps) {
                 setGroupLabel(g.label);
                 setSize(null);
               }}
-              className={`flex items-baseline justify-between border p-5 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              className={`flex items-baseline justify-between border p-5 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
                 selected
-                  ? 'border-gold bg-gold/10'
-                  : 'border-cream/15 hover:border-cream/40'
+                  ? 'border-clay bg-clay/10'
+                  : 'border-ink/10 hover:border-ink/30'
               }`}
             >
               <span className="font-display text-xl">{g.label}</span>
-              <span className="ml-4 shrink-0 text-sm text-gold">
+              <span
+                className={`ml-4 shrink-0 text-sm ${selected ? 'text-ink' : 'text-clay'}`}
+              >
                 from {formatPrice(cheapest)}
               </span>
             </button>
@@ -77,18 +79,18 @@ export function OptionPicker({ category, onAdd }: OptionPickerProps) {
           type="button"
           disabled={!selectedOption}
           onClick={() => selectedOption && onAdd(selectedOption.id)}
-          className="border border-gold px-8 py-3 text-sm uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:cursor-not-allowed disabled:border-cream/20 disabled:text-cream/30 disabled:hover:bg-transparent"
+          className="border border-clay px-8 py-3 text-sm uppercase tracking-[0.2em] text-clay transition-colors hover:bg-clay hover:text-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-clay disabled:cursor-not-allowed disabled:border-ink/20 disabled:text-muted disabled:hover:bg-transparent"
         >
           Add to estimate
         </button>
         {selectedOption && (
-          <p className="text-sm text-cream/60">
+          <p className="text-sm text-muted">
             from {formatPrice(selectedOption.priceFrom)} ·{' '}
             {formatDuration(selectedOption.durationMin)}
           </p>
         )}
         {group?.isSizeAware && !size && (
-          <p className="text-sm text-cream/40">Select a hair length to continue.</p>
+          <p className="text-sm text-muted">Select a hair length to continue.</p>
         )}
       </div>
     </div>

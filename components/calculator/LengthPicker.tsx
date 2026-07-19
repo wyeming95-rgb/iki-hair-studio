@@ -37,7 +37,7 @@ export function LengthPicker({ sizes, value, onChange }: LengthPickerProps) {
 
   return (
     <div>
-      <p className="mb-4 text-sm uppercase tracking-[0.2em] text-cream/50">
+      <p className="mb-4 text-sm uppercase tracking-[0.2em] text-muted">
         Your hair length
       </p>
       <div
@@ -57,17 +57,17 @@ export function LengthPicker({ sizes, value, onChange }: LengthPickerProps) {
               tabIndex={index === tabbableIndex ? 0 : -1}
               onClick={() => onChange(size)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className={`flex flex-col items-center gap-2 border p-4 text-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              className={`flex flex-col items-center gap-2 border p-4 text-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
                 selected
-                  ? 'border-gold bg-gold/10 text-gold'
-                  : 'border-cream/15 text-cream/70 hover:border-cream/40'
+                  ? 'border-clay bg-clay/10 text-ink'
+                  : 'border-ink/10 text-muted hover:border-ink/30'
               }`}
             >
               <LengthSilhouette size={size} className="h-16 w-12" />
               <span className="font-display text-base leading-tight">
                 {SIZE_LABELS[size].name}
               </span>
-              <span className="text-xs leading-tight opacity-60">
+              <span className="text-xs leading-tight">
                 {SIZE_LABELS[size].descriptor}
               </span>
             </button>
