@@ -18,6 +18,13 @@ export function Reveal({ delay = 0, children }: RevealProps) {
       return;
     }
 
+    // Fallback: show content if IntersectionObserver is unavailable.
+    // Without this guard, the constructor throws and content remains permanently invisible.
+    if (!('IntersectionObserver' in window)) {
+      setVisible(true);
+      return;
+    }
+
     const node = ref.current;
     if (!node) return;
 

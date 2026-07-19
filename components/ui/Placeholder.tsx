@@ -22,7 +22,7 @@ export function Placeholder({ ratio, label, className = '' }: PlaceholderProps) 
           backgroundSize: '4px 4px',
         }}
       />
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center" aria-hidden>
         <span className="font-display text-lg tracking-[0.35em] text-gold/40">IKI</span>
       </div>
     </div>
