@@ -3,12 +3,12 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 
 const TILES = [
-  { ratio: '3/4', span: 'md:row-span-2' },
-  { ratio: '4/3', span: '' },
-  { ratio: '1/1', span: '' },
-  { ratio: '4/3', span: '' },
-  { ratio: '3/4', span: 'md:row-span-2' },
-  { ratio: '4/3', span: '' },
+  { ratio: '3/4' },
+  { ratio: '4/3' },
+  { ratio: '1/1' },
+  { ratio: '4/3' },
+  { ratio: '3/4' },
+  { ratio: '4/3' },
 ];
 
 export function Gallery() {
@@ -22,9 +22,9 @@ export function Gallery() {
           </h2>
         </div>
       </Reveal>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <div className="columns-1 gap-4 sm:columns-2 md:columns-3">
         {TILES.map((tile, index) => (
-          <Reveal key={index} delay={index * 60} className={tile.span}>
+          <Reveal key={index} delay={index * 60} className="mb-4 break-inside-avoid">
             <Placeholder
               ratio={tile.ratio}
               label={`Salon work sample ${index + 1}`}
