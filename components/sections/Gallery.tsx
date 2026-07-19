@@ -24,10 +24,9 @@ export function Gallery() {
       </Reveal>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {TILES.map((tile, index) => (
-          <Reveal key={index} delay={index * 60}>
+          <Reveal key={index} delay={index * 60} className={tile.span}>
             <Placeholder
               ratio={tile.ratio}
-              className={tile.span}
               label={`Salon work sample ${index + 1}`}
             />
           </Reveal>

@@ -4,10 +4,11 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 interface RevealProps {
   delay?: number;
+  className?: string;
   children: ReactNode;
 }
 
-export function Reveal({ delay = 0, children }: RevealProps) {
+export function Reveal({ delay = 0, className = '', children }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -48,7 +49,7 @@ export function Reveal({ delay = 0, children }: RevealProps) {
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ease-out ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-      }`}
+      } ${className}`}
     >
       {children}
     </div>
