@@ -27,3 +27,18 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * `components/ui/Reveal.tsx` starts its wrapper at opacity: 0 and only
+ * reveals via a useEffect + IntersectionObserver. With JavaScript disabled
+ * or failed, that effect never runs and content stays permanently invisible
+ * — violating the "no content can become permanently invisible" rule below.
+ * `scripting: none` only matches when JS is unavailable, so this rule is a
+ * no-op for normal users and does not affect the scroll-reveal animation.
+ */
+@media (scripting: none) {
+  .duration-700 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
