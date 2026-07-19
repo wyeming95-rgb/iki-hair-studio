@@ -42,11 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: site.name,
               slogan: site.tagline,
               telephone: `+${site.whatsappNumber}`,
-              url: site.bookingUrl,
-              sameAs: [site.instagramUrl],
+              // url is intentionally omitted until the site has its own domain;
+              // future maintainers should restore it deliberately when deployed.
+              sameAs: [site.instagramUrl, site.bookingUrl],
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: `${site.address.line1}, ${site.address.line2}`,
+                addressLocality: site.address.line2,
                 addressRegion: 'Selangor',
                 addressCountry: 'MY',
               },
