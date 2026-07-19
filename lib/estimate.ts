@@ -20,8 +20,18 @@ export interface EstimateTotals {
   itemCount: number;
 }
 
-/** Max characters for the WhatsApp message body, before encoding. */
-const MAX_MESSAGE_LENGTH = 900;
+/**
+ * Maximum total length of the generated wa.me URL — the literal
+ * `https://wa.me/{number}?text=` prefix plus the percent-encoded message —
+ * in characters. This bounds the ENCODED size rather than the raw message
+ * length: encoding expands characters unevenly (`•` becomes 9 characters,
+ * `×` becomes 6, a space becomes 3), so capping the raw length does not
+ * bound the final URL length, which is what browsers and the WhatsApp
+ * handler actually enforce limits on. 1800 leaves headroom under the
+ * conservative 2000-character figure while staying well inside what
+ * browsers and the WhatsApp handler accept.
+ */
+const MAX_URL_LENGTH = 1800;
 
 export function findOption(id: string): ServiceOption | undefined {
   return allOptions.find((o) => o.id === id);
@@ -97,13 +107,29 @@ function buildWhatsAppMessage(lines: CartLine[]): string {
   const { priceFrom } = calculateEstimate(lines);
   const header = `Hi ${site.name}, I'd like to book:`;
   const footer = `\nEstimated total: from ${formatPrice(priceFrom)}`;
+  const marker = '\n… and more';
+  const prefixLength = `https://wa.me/${site.whatsappNumber}?text=`.length;
 
-  let body = items.join('\n');
-  if (body.length > MAX_MESSAGE_LENGTH) {
-    body = `${body.slice(0, MAX_MESSAGE_LENGTH)}\n… and more`;
+  const fullBody = items.join('\n');
+  const fullMessage = `${header}\n${fullBody}${footer}`;
+  if (prefixLength + encodeURIComponent(fullMessage).length <= MAX_URL_LENGTH) {
+    return fullMessage;
   }
 
-  return `${header}\n${body}${footer}`;
+  // Doesn't fit: add item lines one at a time, stopping just before the
+  // encoded URL — including the footer and the "… and more" marker, which
+  // always survive — would exceed the budget.
+  let body = '';
+  for (const item of items) {
+    const candidateBody = body ? `${body}\n${item}` : item;
+    const candidateMessage = `${header}\n${candidateBody}${marker}${footer}`;
+    if (prefixLength + encodeURIComponent(candidateMessage).length > MAX_URL_LENGTH) {
+      break;
+    }
+    body = candidateBody;
+  }
+
+  return `${header}\n${body}${marker}${footer}`;
 }
 
 export function buildWhatsAppUrl(lines: CartLine[]): string {

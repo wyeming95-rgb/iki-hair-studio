@@ -7,6 +7,7 @@ import {
   optionDisplayName,
 } from '@/lib/estimate';
 import { serviceCategories } from '@/data/services';
+import { formatPrice } from '@/lib/format';
 
 const coloring = serviceCategories.find((c) => c.id === 'coloring')!;
 const haircut = serviceCategories.find((c) => c.id === 'haircut')!;
@@ -126,12 +127,41 @@ describe('buildWhatsAppUrl', () => {
     expect(text).toContain('× 2');
   });
 
-  it('truncates very long carts to keep the URL valid', () => {
-    const lines = Array.from({ length: 40 }, () => ({
-      optionId: 'coloring-single-tone-el',
+  it('truncates a very long cart (50 lines) to keep the encoded URL bounded', () => {
+    const lines = Array.from({ length: 50 }, () => ({
+      optionId: 'coloring-root-touch',
       qty: 9,
     }));
     const url = buildWhatsAppUrl(lines);
-    expect(url.length).toBeLessThan(2000);
+    expect(url.length).toBeLessThanOrEqual(1800);
+  });
+
+  it('truncates an even longer cart (60 lines) to keep the encoded URL bounded', () => {
+    const lines = Array.from({ length: 60 }, () => ({
+      optionId: 'coloring-root-touch',
+      qty: 9,
+    }));
+    const url = buildWhatsAppUrl(lines);
+    expect(url.length).toBeLessThanOrEqual(1800);
+  });
+
+  it('keeps the estimated total in the message even when truncated', () => {
+    const lines = Array.from({ length: 60 }, () => ({
+      optionId: 'coloring-root-touch',
+      qty: 9,
+    }));
+    const url = buildWhatsAppUrl(lines);
+    const text = decodeURIComponent(url.split('?text=')[1]);
+    const { priceFrom } = calculateEstimate(lines);
+    expect(text).toContain(`Estimated total: from ${formatPrice(priceFrom)}`);
+  });
+
+  it('does not truncate a small cart', () => {
+    const url = buildWhatsAppUrl([
+      { optionId: 'coloring-single-tone-m', qty: 1 },
+      { optionId: 'treatment-intensive-scalp', qty: 1 },
+    ]);
+    const text = decodeURIComponent(url.split('?text=')[1]);
+    expect(text).not.toContain('… and more');
   });
 });
