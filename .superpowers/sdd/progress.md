@@ -21,3 +21,7 @@ Task 3: complete (commits ea3346e..858d1e0, review clean after 1 fix round)
     -> 2033 chars. Fixed to bound encoded length via MAX_URL_LENGTH=1800.
     Re-review measured worst case (all 33 options @ qty999) = 1796. Footer survival
     structurally guaranteed. NOTE: plan doc still shows old MAX_MESSAGE_LENGTH code.
+Task 4: complete (commits 02ca6a0..35444bc, review clean after 1 fix round)
+  - Fixed: aria-hidden on decorative IKI wordmark; guard for missing IntersectionObserver
+    (constructor throw would have stranded content at opacity:0 permanently).
+  - Re-review done inline by controller (2-line change, typecheck + 37 tests green).
