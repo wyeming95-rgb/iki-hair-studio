@@ -58,3 +58,11 @@ Task 9: complete (commits 0e80d40..687ce44, review clean after 1 fix round)
   - ENV NOTE for Task 11: the Claude_Browser pane does NOT tick compositor frames --
     IntersectionObserver never fires there and screenshots time out. Playwright MCP works
     normally. Use Playwright for any behavioural browser verification from here on.
+Task 10: complete (commits ead3f1e..8cee274, review clean after 1 fix round)
+  - Fixed JSON-LD accuracy: url pointed at booking.tunai.io (third-party the salon does
+    not own). Removed url (no own domain yet), moved Tunai to sameAs. Added
+    addressLocality. Verified via Playwright parse: 6 opening-hours entries, Tuesday out.
+  - MINOR for final triage: Footer year uses new Date().getFullYear() in a statically
+    prerendered Server Component -> bakes in at build time, goes stale after Dec 31
+    without a redeploy.
+  - CARRIED FORWARD: restore JSON-LD `url` once the site has its own domain.
