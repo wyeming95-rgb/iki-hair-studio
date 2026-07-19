@@ -40,7 +40,7 @@ export function CategoryTabs({ categories, value, onChange }: CategoryTabsProps)
             role="tab"
             type="button"
             aria-selected={selected}
-            aria-controls={`panel-${category.id}`}
+            aria-controls="calculator-panel"
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(category.id)}
             onKeyDown={(e) => handleKeyDown(e, index)}

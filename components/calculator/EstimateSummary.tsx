@@ -36,7 +36,7 @@ export function EstimateSummary({ lines }: { lines: CartLine[] }) {
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <a
-          href={site.bookingUrl}
+          href={empty ? undefined : site.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-disabled={empty}

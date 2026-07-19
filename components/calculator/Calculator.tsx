@@ -50,7 +50,7 @@ export function Calculator() {
         />
         <div
           role="tabpanel"
-          id={`panel-${category.id}`}
+          id="calculator-panel"
           aria-labelledby={`tab-${category.id}`}
         >
           <OptionPicker category={category} onAdd={addOption} />
