@@ -15,3 +15,9 @@ Task 2: complete (commits 65632d1..d2df4a1, review clean after 1 fix round)
   - PLAN OVERRIDE (user-approved): plan's Task 2 test spot-checked only 5/33 prices,
     2/33 durations. Added full 33-row independent-transcription assertion table.
     Re-review confirmed 33 entries, unconditional asserts, prior tests kept.
+Task 3: complete (commits ea3346e..858d1e0, review clean after 1 fix round)
+  - PLAN OVERRIDE (user-approved): plan's buildWhatsAppMessage capped RAW length (900),
+    which did not bound the ENCODED URL. Reviewer proved 50x coloring-root-touch qty9
+    -> 2033 chars. Fixed to bound encoded length via MAX_URL_LENGTH=1800.
+    Re-review measured worst case (all 33 options @ qty999) = 1796. Footer survival
+    structurally guaranteed. NOTE: plan doc still shows old MAX_MESSAGE_LENGTH code.
