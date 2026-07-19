@@ -25,3 +25,10 @@ Task 4: complete (commits 02ca6a0..35444bc, review clean after 1 fix round)
   - Fixed: aria-hidden on decorative IKI wordmark; guard for missing IntersectionObserver
     (constructor throw would have stranded content at opacity:0 permanently).
   - Re-review done inline by controller (2-line change, typecheck + 37 tests green).
+Task 5: complete (commits 88f4f62..38085d7, review clean after 1 fix round)
+  - Reviewer verified all 5 SVG d-paths char-by-char: exact.
+  - Fixed: radiogroup had no roving tabindex / arrow keys. Plan's Global Constraints
+    require a real radiogroup; plan's code under-implemented it. Constraint governed.
+  - MINOR for final triage: LengthPicker tabbableIndex uses sizes.indexOf(value); if
+    value is ever absent from sizes it returns -1 and NO button is tabbable (keyboard
+    unreachable). Unreachable today because OptionPicker resets size on group change.
