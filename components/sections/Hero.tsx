@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="flex min-h-[88vh] w-full items-center bg-paper px-6 py-24 md:px-12"
+      className="flex min-h-[88vh] w-full scroll-mt-24 items-center bg-paper px-6 py-24 md:px-12"
     >
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div className="text-center lg:text-left">

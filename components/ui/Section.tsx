@@ -13,7 +13,7 @@ export function Section({ id, tone = 'paper', className = '', children }: Sectio
   return (
     <section
       id={id}
-      className={`scroll-mt-16 px-6 py-24 md:px-12 md:py-32 ${toneClasses} ${className}`}
+      className={`scroll-mt-24 px-6 py-24 md:px-12 md:py-32 ${toneClasses} ${className}`}
     >
       <div className="mx-auto max-w-6xl">{children}</div>
     </section>
