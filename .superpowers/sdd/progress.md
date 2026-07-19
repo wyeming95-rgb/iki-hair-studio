@@ -78,3 +78,22 @@ Task 11: complete (commits 95e4bd4..e30d019, review clean)
     on cream appears only as rules, never body text).
 
 ALL 11 TASKS COMPLETE. Proceeding to final whole-branch review.
+
+## Final whole-branch review (opus) + fix wave
+Verdict was "merge after fixes". Applied in commits 0823464, f8cdb1a, f9082fd.
+  - IMPORTANT: build script used --turbopack, whose routes-manifest omits dataRoutes,
+    so `next start` crashed. Never caught because Playwright runs `next dev`. Fixed;
+    production start now verified HTTP 200.
+  - IMPORTANT: all 14 Reveal wrappers stayed opacity:0 without JS -> everything below
+    the hero was invisible. Fixed via @media (scripting: none); measured all 14 = 1
+    with JS off, animation still works with JS on.
+  - Minors fixed: footer year no longer baked in; playwright reuseExistingServer
+    restored to !process.env.CI; LengthPicker tabbableIndex clamped + aligned to
+    CategoryTabs' synchronous focus pattern; invariant test added for non-size-aware
+    groups; cart line price now reads "each"; plan doc flags 3 superseded snippets;
+    README replaced with handoff docs; .playwright-mcp gitignored.
+  - Confirmed delivered: spec §8 all four error cases, §9 a11y + SEO. Gold focus ring
+    verified rendering rgb(197,165,114). Seam audit across all 33 options: clean.
+  - CARRIED (needs client/owner): confirm WhatsApp number; real photos; vector logo;
+    og:image + metadataBase; restore JSON-LD url once domain exists; decide whether
+    the unused section ids should get a nav.
