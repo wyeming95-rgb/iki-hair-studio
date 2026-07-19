@@ -13,14 +13,14 @@ interface EstimateCartProps {
 export function EstimateCart({ lines, onChangeQty, onRemove }: EstimateCartProps) {
   if (lines.length === 0) {
     return (
-      <p className="text-sm text-cream/40">
+      <p className="text-sm text-muted">
         Nothing selected yet. Add a service to build your estimate.
       </p>
     );
   }
 
   return (
-    <ul className="divide-y divide-cream/10">
+    <ul className="divide-y divide-ink/10">
       {lines.map((line) => {
         const option = findOption(line.optionId);
         if (!option) return null;
@@ -30,7 +30,7 @@ export function EstimateCart({ lines, onChangeQty, onRemove }: EstimateCartProps
               <p className="truncate font-display text-lg">
                 {optionDisplayName(option)}
               </p>
-              <p className="text-sm text-cream/50">
+              <p className="text-sm text-muted">
                 from {formatPrice(option.priceFrom)} each ·{' '}
                 {formatDuration(option.durationMin)}
               </p>
@@ -41,7 +41,7 @@ export function EstimateCart({ lines, onChangeQty, onRemove }: EstimateCartProps
                 type="button"
                 aria-label={`Decrease quantity of ${optionDisplayName(option)}`}
                 onClick={() => onChangeQty(line.optionId, line.qty - 1)}
-                className="h-8 w-8 border border-cream/20 text-cream/70 hover:border-gold hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="h-8 w-8 border border-ink/20 text-muted hover:border-clay hover:text-clay focus:outline-none focus-visible:ring-2 focus-visible:ring-clay"
               >
                 −
               </button>
@@ -52,7 +52,7 @@ export function EstimateCart({ lines, onChangeQty, onRemove }: EstimateCartProps
                 type="button"
                 aria-label={`Increase quantity of ${optionDisplayName(option)}`}
                 onClick={() => onChangeQty(line.optionId, line.qty + 1)}
-                className="h-8 w-8 border border-cream/20 text-cream/70 hover:border-gold hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="h-8 w-8 border border-ink/20 text-muted hover:border-clay hover:text-clay focus:outline-none focus-visible:ring-2 focus-visible:ring-clay"
               >
                 +
               </button>
@@ -62,7 +62,7 @@ export function EstimateCart({ lines, onChangeQty, onRemove }: EstimateCartProps
               type="button"
               aria-label={`Remove ${optionDisplayName(option)}`}
               onClick={() => onRemove(line.optionId)}
-              className="text-sm text-cream/40 underline-offset-4 hover:text-cream hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="text-sm text-muted underline-offset-4 hover:text-ink hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-clay"
             >
               Remove
             </button>
