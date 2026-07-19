@@ -1,9 +1,13 @@
-import { Calculator } from '@/components/calculator/Calculator';
+import { About } from '@/components/sections/About';
+import { Hero } from '@/components/sections/Hero';
+import { Services } from '@/components/sections/Services';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-ink p-6 md:p-12">
-      <Calculator />
+    <main>
+      <Hero />
+      <About />
+      <Services />
     </main>
   );
 }
