@@ -41,3 +41,11 @@ Task 6: complete (commits 276f764..62ff9d0, review clean, no fix round)
     if such data is added later.
   - CARRIED TO TASK 7: tabs lack aria-controls -> role="tabpanel" linkage; the panel
     lives in Task 7's container.
+Task 7: complete (commits 4eedc9f..ea62796, review clean after 1 fix round)
+  - Browser-verified full cart flow: 250/2hr -> 410/3hr -> 570/4hr -> remove -> 250/2hr.
+  - Fixed CRITICAL: 6 tabs each pointed aria-controls at their own panel id, but only
+    ONE panel renders -> 5 dangling refs. Now all tabs -> stable "calculator-panel".
+  - Fixed IMPORTANT: "Book on Tunai" kept a live href when cart empty; pointer-events-none
+    + preventDefault do not block context-menu "open in new tab". Now href=undefined when
+    empty, symmetric with the WhatsApp CTA. Plan text already required BOTH disabled.
+  - Verified: empty cart => 6 tabbable elements, neither CTA focusable.
