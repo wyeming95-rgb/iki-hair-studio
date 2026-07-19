@@ -32,3 +32,12 @@ Task 5: complete (commits 88f4f62..38085d7, review clean after 1 fix round)
   - MINOR for final triage: LengthPicker tabbableIndex uses sizes.indexOf(value); if
     value is ever absent from sizes it returns -1 and NO button is tabbable (keyboard
     unreachable). Unreachable today because OptionPicker resets size on group change.
+Task 6: complete (commits 276f764..62ff9d0, review clean, no fix round)
+  - Implementer verified interactively in browser (DOM/console, screenshots timed out).
+  - Applied planned deviation: ref callback block body (plan's concise-arrow form
+    returns a value, which React rejects).
+  - MINOR for final triage: OptionPicker adds group.options[0] for non-size-aware
+    groups; safe today (no unsized label has >1 option) but silently unreachable
+    if such data is added later.
+  - CARRIED TO TASK 7: tabs lack aria-controls -> role="tabpanel" linkage; the panel
+    lives in Task 7's container.
