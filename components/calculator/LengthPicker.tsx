@@ -67,7 +67,7 @@ export function LengthPicker({ sizes, value, onChange }: LengthPickerProps) {
               <span className="font-display text-base leading-tight">
                 {SIZE_LABELS[size].name}
               </span>
-              <span className="text-xs leading-tight opacity-60">
+              <span className="text-xs leading-tight">
                 {SIZE_LABELS[size].descriptor}
               </span>
             </button>
