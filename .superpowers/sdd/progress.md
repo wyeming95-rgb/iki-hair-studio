@@ -66,3 +66,15 @@ Task 10: complete (commits ead3f1e..8cee274, review clean after 1 fix round)
     prerendered Server Component -> bakes in at build time, goes stale after Dec 31
     without a redeploy.
   - CARRIED FORWARD: restore JSON-LD `url` once the site has its own domain.
+Task 11: complete (commits 95e4bd4..e30d019, review clean)
+  - Playwright 6/6 (2 brief tests + 4 added Step-7 checks). 375px: scrollWidth==clientWidth.
+    Reduced motion: 14 Reveal elements all opacity 1. Keyboard: arrows move tabs, CTAs
+    reachable when cart non-empty. npm test 37/37, lint clean, build succeeds.
+  - Reviewer confirmed selectors were scoped (not loosened) and no component was weakened.
+  - MINOR for final triage: playwright.config reuseExistingServer hardcoded true instead
+    of !process.env.CI -- inert today (no CI), a trap if CI is added later.
+  - NOT VERIFIED (residual manual): gold focus ring renders visibly; gold-on-cream
+    contrast spot-check (though reviews of Tasks 8/10 confirmed by inspection that gold
+    on cream appears only as rules, never body text).
+
+ALL 11 TASKS COMPLETE. Proceeding to final whole-branch review.
