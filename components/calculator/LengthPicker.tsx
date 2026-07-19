@@ -59,7 +59,7 @@ export function LengthPicker({ sizes, value, onChange }: LengthPickerProps) {
               onKeyDown={(e) => handleKeyDown(e, index)}
               className={`flex flex-col items-center gap-2 border p-4 text-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
                 selected
-                  ? 'border-clay bg-clay/10 text-clay'
+                  ? 'border-clay bg-clay/10 text-ink'
                   : 'border-ink/10 text-muted hover:border-ink/30'
               }`}
             >

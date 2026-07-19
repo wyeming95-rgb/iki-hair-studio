@@ -60,7 +60,9 @@ export function OptionPicker({ category, onAdd }: OptionPickerProps) {
               }`}
             >
               <span className="font-display text-xl">{g.label}</span>
-              <span className="ml-4 shrink-0 text-sm text-clay">
+              <span
+                className={`ml-4 shrink-0 text-sm ${selected ? 'text-ink' : 'text-clay'}`}
+              >
                 from {formatPrice(cheapest)}
               </span>
             </button>
