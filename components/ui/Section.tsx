@@ -2,14 +2,14 @@ import type { ReactNode } from 'react';
 
 interface SectionProps {
   id: string;
-  tone?: 'ink' | 'cream';
+  tone?: 'paper' | 'surface';
   className?: string;
   children: ReactNode;
 }
 
-export function Section({ id, tone = 'ink', className = '', children }: SectionProps) {
+export function Section({ id, tone = 'paper', className = '', children }: SectionProps) {
   const toneClasses =
-    tone === 'cream' ? 'bg-cream text-ink' : 'bg-ink text-cream';
+    tone === 'surface' ? 'bg-surface text-ink' : 'bg-paper text-ink';
   return (
     <section
       id={id}

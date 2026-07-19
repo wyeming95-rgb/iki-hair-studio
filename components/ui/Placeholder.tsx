@@ -9,7 +9,7 @@ export function Placeholder({ ratio, label, className = '' }: PlaceholderProps) 
   return (
     <div
       style={{ aspectRatio: ratio }}
-      className={`relative w-full overflow-hidden bg-gradient-to-br from-[#141414] via-[#1c1a17] to-[#0a0a0a] ${className}`}
+      className={`relative w-full overflow-hidden bg-gradient-to-br from-[#e8e0d4] via-[#efe9df] to-[#f5f1ea] ${className}`}
       role="img"
       aria-label={label ?? 'Photography coming soon'}
     >
@@ -18,12 +18,12 @@ export function Placeholder({ ratio, label, className = '' }: PlaceholderProps) 
         className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 1px 1px, #f5f2ec 1px, transparent 0)',
+            'radial-gradient(circle at 1px 1px, #302b26 1px, transparent 0)',
           backgroundSize: '4px 4px',
         }}
       />
       <div className="absolute inset-0 flex items-center justify-center" aria-hidden>
-        <span className="font-display text-lg tracking-[0.35em] text-gold/40">IKI</span>
+        <span className="font-display text-lg tracking-[0.35em] text-clay/50">IKI</span>
       </div>
     </div>
   );
