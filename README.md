@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Iki Hair Studio
 
-## Getting Started
+A single-page marketing site for Iki Hair Studio, built with Next.js. Its
+centrepiece is a client-side price calculator: visitors pick services, see a
+running estimate, and hand off to the salon's Tunai booking system with a
+prefilled WhatsApp message summarising their selection. There is no CMS and
+no backend — all content is static data compiled into the site.
 
-First, run the development server:
+## Changing prices or business hours
+
+Routine content changes only ever require editing two files:
+
+- `data/services.ts` — the full service catalogue: categories, options,
+  prices (`priceFrom`), and durations (`durationMin`).
+- `data/site.ts` — business hours, address, phone number, WhatsApp number,
+  and booking/Instagram links.
+
+After editing prices, run `npm test`. The test suite independently
+transcribes and asserts all 33 prices and durations from the source
+requirements doc, so a mistyped number will fail a test rather than reach
+production silently.
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev        # start the dev server (Turbopack)
+npm run build      # production build
+npm start          # serve the production build
+npm test           # run the unit test suite (Vitest)
+npm run test:e2e   # run the end-to-end suite (Playwright)
+npm run lint       # run ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Deploys to Vercel with a standard Next.js build (`npm run build`). No
+environment variables are required.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before launch
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Confirm the WhatsApp number `601172267229` against the salon's real
+  account — the source requirements doc contained an 11-digit typo, and this
+  value has not yet been confirmed by the client.
+- Replace the placeholder gallery images with real photography.
+- Supply a vector logo.
+- Add an `og:image` and `metadataBase` once real photography exists.
+- Restore the JSON-LD `url` field in `app/layout.tsx` once the site has its
+  own domain.

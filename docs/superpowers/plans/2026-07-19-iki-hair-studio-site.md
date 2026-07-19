@@ -26,6 +26,29 @@ Every task's requirements implicitly include this section.
 
 ---
 
+## Superseded during execution
+
+The task bodies below are left as originally written for history, but the
+following details were overridden during implementation and should not be
+treated as authoritative:
+
+- **Task 3** — the plan's `MAX_MESSAGE_LENGTH = 900` raw-length truncation
+  was replaced. `lib/estimate.ts` now bounds the ENCODED url length instead,
+  via `MAX_URL_LENGTH = 1800`, because percent-encoding expands characters
+  unevenly and a raw-length cap does not bound the final URL length.
+- **Task 9** — the plan's `className={tile.span}` on `<Placeholder>` was
+  replaced. `components/sections/Gallery.tsx` applies the span to the
+  `<Reveal>` wrapper instead, since that wrapper is the actual grid item.
+- **Task 10** — the plan's `url: site.bookingUrl` in the JSON-LD was
+  dropped. `app/layout.tsx` omits `url` entirely and lists the Tunai
+  booking link under `sameAs` instead.
+
+Separately, the plan's `playwright.config.ts` sample (`reuseExistingServer:
+!process.env.CI`) was correct as written — the shipped code had drifted
+from it and has since been fixed back to match the plan.
+
+---
+
 ### Task 1: Project scaffold, theme tokens, and test harness
 
 **Files:**
