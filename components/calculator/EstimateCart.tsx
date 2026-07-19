@@ -31,7 +31,7 @@ export function EstimateCart({ lines, onChangeQty, onRemove }: EstimateCartProps
                 {optionDisplayName(option)}
               </p>
               <p className="text-sm text-cream/50">
-                from {formatPrice(option.priceFrom)} ·{' '}
+                from {formatPrice(option.priceFrom)} each ·{' '}
                 {formatDuration(option.durationMin)}
               </p>
             </div>

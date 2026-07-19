@@ -7,10 +7,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:3000',
-    // A dev server for this project is commonly already running locally
-    // (ports 3000/3001), so always reuse it instead of only doing so when
-    // CI is unset — starting a second `next dev` on the same port fails.
-    reuseExistingServer: true,
+    reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
 });

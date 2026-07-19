@@ -37,7 +37,7 @@ export function Footer() {
         </nav>
 
         <p className="text-xs text-cream/30">
-          © {new Date().getFullYear()} {site.name}
+          © {site.name}
         </p>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 import { SIZE_LABELS, type SizeCode } from '@/data/services';
 import { LengthSilhouette } from './LengthSilhouette';
 
@@ -13,14 +13,10 @@ interface LengthPickerProps {
 export function LengthPicker({ sizes, value, onChange }: LengthPickerProps) {
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Determine which button should be tabbable (roving tabindex)
-  const tabbableIndex = useMemo(() => {
-    if (value !== null) {
-      return sizes.indexOf(value);
-    }
-    // If no value selected, first button is tabbable
-    return 0;
-  }, [value, sizes]);
+  // Determine which button should be tabbable (roving tabindex). Clamp to 0
+  // so an unmatched value (defensively unreachable today) still leaves one
+  // button tabbable instead of none.
+  const tabbableIndex = value !== null ? Math.max(0, sizes.indexOf(value)) : 0;
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
     let newIndex: number | null = null;
@@ -35,10 +31,7 @@ export function LengthPicker({ sizes, value, onChange }: LengthPickerProps) {
 
     if (newIndex !== null) {
       onChange(sizes[newIndex]);
-      // Move focus to the newly selected button
-      setTimeout(() => {
-        buttonRefs.current[newIndex]?.focus();
-      }, 0);
+      buttonRefs.current[newIndex]?.focus();
     }
   };
 

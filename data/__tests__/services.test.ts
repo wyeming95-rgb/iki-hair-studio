@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { allOptions, serviceCategories, SIZE_ORDER } from '@/data/services';
+import { groupOptionsByLabel } from '@/lib/estimate';
 
 describe('service data', () => {
   it('has six categories', () => {
@@ -133,6 +134,14 @@ describe('service data', () => {
     // Every actual option must be accounted for in the expected table (no extras).
     for (const o of allOptions) {
       expect(expected[o.id], `unexpected option not in PROJECT.md table: ${o.id}`).toBeDefined();
+    }
+  });
+
+  it('has no non-size-aware group with more than one option', () => {
+    for (const cat of serviceCategories) {
+      for (const g of groupOptionsByLabel(cat.options)) {
+        if (!g.isSizeAware) expect(g.options, g.label).toHaveLength(1);
+      }
     }
   });
 });
