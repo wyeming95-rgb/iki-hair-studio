@@ -7,7 +7,7 @@ export function Team() {
     <Section id="team">
       <Reveal>
         <div className="mb-14 max-w-2xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Team</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-clay">Team</p>
           <h2 className="font-display text-4xl font-light md:text-5xl">
             Who you will be sitting with
           </h2>
@@ -17,14 +17,14 @@ export function Team() {
         {site.team.map((member, index) => (
           <Reveal key={member.name} delay={index * 80}>
             <div className="flex items-center gap-5">
-              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-gold/40">
-                <span className="font-display text-xl tracking-widest text-gold">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-clay/40">
+                <span className="font-display text-xl tracking-widest text-clay">
                   {member.initials}
                 </span>
               </div>
               <div>
                 <p className="font-display text-2xl">{member.name}</p>
-                <p className="text-sm uppercase tracking-[0.2em] text-cream/50">
+                <p className="text-sm uppercase tracking-[0.2em] text-muted">
                   {member.role}
                 </p>
               </div>

@@ -16,7 +16,7 @@ export function Gallery() {
     <Section id="gallery">
       <Reveal>
         <div className="mb-14 max-w-2xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Work</p>
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-clay">Work</p>
           <h2 className="font-display text-4xl font-light md:text-5xl">
             Recent from the chair
           </h2>
