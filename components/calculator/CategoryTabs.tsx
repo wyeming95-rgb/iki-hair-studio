@@ -36,9 +36,11 @@ export function CategoryTabs({ categories, value, onChange }: CategoryTabsProps)
             ref={(el) => {
               refs.current[index] = el;
             }}
+            id={`tab-${category.id}`}
             role="tab"
             type="button"
             aria-selected={selected}
+            aria-controls={`panel-${category.id}`}
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(category.id)}
             onKeyDown={(e) => handleKeyDown(e, index)}
