@@ -50,3 +50,11 @@ Task 7: complete (commits 4eedc9f..ea62796, review clean after 1 fix round)
     empty, symmetric with the WhatsApp CTA. Plan text already required BOTH disabled.
   - Verified: empty cart => 6 tabbable elements, neither CTA focusable.
 Task 8: complete (commits 37d822f..0bbddca, review clean, no fix round)
+Task 9: complete (commits 0e80d40..687ce44, review clean after 1 fix round)
+  - Fixed plan defect: TILES span/ratio were applied to <Placeholder>, but the real grid
+    item is the <Reveal> wrapper, so md:row-span-2 was dead code (all 6 wrappers 497.77px).
+    Reveal now takes optional className; span moved to it. After: 669/576px for the two
+    row-span tiles, 280/373px others. Ratios were already correct on Placeholder.
+  - ENV NOTE for Task 11: the Claude_Browser pane does NOT tick compositor frames --
+    IntersectionObserver never fires there and screenshots time out. Playwright MCP works
+    normally. Use Playwright for any behavioural browser verification from here on.
