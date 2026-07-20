@@ -17,6 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://iki-hair-studio.vercel.app'),
   title: 'Iki Hair Studio — Bandar Rimbayu',
   description:
     'A calm, considered hair studio in Bandar Rimbayu. Cutting, colouring, perming and treatments — estimate your price and book online.',
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
     description: 'A reason for being. Hair care shaped around your life.',
     type: 'website',
     locale: 'en_MY',
+    url: 'https://iki-hair-studio.vercel.app',
+    siteName: 'Iki Hair Studio',
   },
 };
 
