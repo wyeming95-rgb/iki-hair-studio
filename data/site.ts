@@ -5,8 +5,9 @@ export const site = {
   phoneDisplay: '011-7226 7229',
   /**
    * International format, digits only, for wa.me links.
-   * PROJECT.md §7.5 contains an 11-digit typo (60117226729); this is the
-   * correct 12-digit form. Confirm against the salon's account before launch.
+   * PROJECT.md §7.5 contains an 11-digit typo (60117226729); this 12-digit
+   * form is correct and was confirmed against the salon's live WhatsApp
+   * account via the deployed site on 2026-07-20.
    */
   whatsappNumber: '601172267229',
   bookingUrl: 'https://booking.tunai.io/ikihairstudio',
