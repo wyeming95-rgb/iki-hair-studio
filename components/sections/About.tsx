@@ -3,7 +3,7 @@ import { Reveal } from '@/components/ui/Reveal';
 
 export function About() {
   return (
-    <Section id="about" tone="surface">
+    <Section id="about">
       <Reveal>
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto mb-10 h-px w-16 bg-clay" />

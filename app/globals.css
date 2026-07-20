@@ -2,10 +2,12 @@
 
 @theme {
   --color-paper: #f5f1ea;
-  --color-surface: #e8e0d4;
+  --color-surface: #e4dccd;
   --color-ink: #302b26;
   --color-muted: #5c554d;
   --color-clay: #8a5f4d;
+  --color-deep: #1e1a16;
+  --color-cream: #f5f1ea;
 
   --font-display: var(--font-cormorant), Georgia, serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
@@ -42,5 +44,21 @@ body {
   .duration-700 {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /*
+   * The nav defaults to a transparent state that relies on an
+   * IntersectionObserver to turn solid once the dark hero scrolls away.
+   * With JS unavailable that never fires, so a scrolled reader would see
+   * cream links stranded over light sections. Force the always-legible
+   * solid state instead. The clay Book button keeps its own background.
+   */
+  .nav-shell {
+    background-color: var(--color-paper) !important;
+    border-bottom-color: color-mix(in srgb, var(--color-ink) 10%, transparent) !important;
+  }
+  .nav-shell a:not([data-cta]),
+  .nav-shell button {
+    color: var(--color-ink) !important;
   }
 }

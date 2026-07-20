@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/Section';
 
 export function Services() {
   return (
-    <Section id="services">
+    <Section id="services" tone="surface">
       <Reveal>
         <div className="mb-14 max-w-2xl">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-clay">
@@ -19,7 +19,11 @@ export function Services() {
           </p>
         </div>
       </Reveal>
-      <Calculator />
+      <Reveal delay={80}>
+        <div className="bg-paper p-6 shadow-[0_20px_50px_-30px_rgba(48,43,38,0.45)] ring-1 ring-ink/10 md:p-10 lg:p-12">
+          <Calculator />
+        </div>
+      </Reveal>
     </Section>
   );
 }

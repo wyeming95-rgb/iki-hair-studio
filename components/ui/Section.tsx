@@ -2,14 +2,19 @@ import type { ReactNode } from 'react';
 
 interface SectionProps {
   id: string;
-  tone?: 'paper' | 'surface';
+  tone?: 'paper' | 'surface' | 'deep';
   className?: string;
   children: ReactNode;
 }
 
+const TONE_CLASSES: Record<NonNullable<SectionProps['tone']>, string> = {
+  paper: 'bg-paper text-ink',
+  surface: 'bg-surface text-ink',
+  deep: 'bg-deep text-cream',
+};
+
 export function Section({ id, tone = 'paper', className = '', children }: SectionProps) {
-  const toneClasses =
-    tone === 'surface' ? 'bg-surface text-ink' : 'bg-paper text-ink';
+  const toneClasses = TONE_CLASSES[tone];
   return (
     <section
       id={id}
