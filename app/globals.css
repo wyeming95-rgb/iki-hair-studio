@@ -9,6 +9,12 @@
   --color-deep: #1e1a16;
   --color-cream: #f5f1ea;
 
+  /* Strong ease-out for deliberate motion (scroll reveals, hero load-in).
+     Replaces Tailwind's weaker default so the `ease-out` utility decelerates
+     with more intent. Only the reveal/hero use `ease-out` explicitly; hover
+     colour transitions use the default timing function and are unaffected. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
   --font-display: var(--font-cormorant), Georgia, serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
 }
@@ -29,6 +35,24 @@ body {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+ * Mobile menu panel: fade and drop in when it opens. The panel is
+ * conditionally mounted (so its links stay out of the tab order when
+ * closed), and `@starting-style` gives the just-mounted element a state
+ * to transition FROM. Exit is instant — the element unmounts — which
+ * reads fine for a menu close. Reduced-motion zeroes the duration above,
+ * and the menu needs JS to open at all, so there is no no-JS concern.
+ */
+#mobile-nav-panel {
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+@starting-style {
+  #mobile-nav-panel {
+    opacity: 0;
+    transform: translateY(-8px);
   }
 }
 
