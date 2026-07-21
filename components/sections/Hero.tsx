@@ -13,11 +13,10 @@ export function Hero() {
         <div className="mx-auto mb-8 h-px w-16 bg-clay lg:mx-0" />
 
         <h1
-          aria-label="Iki Hair"
+          aria-label="Iki"
           className="font-display font-light leading-[0.88] tracking-tight text-cream"
         >
-          <span className="block text-[clamp(4.5rem,19vw,11rem)]">IKI</span>
-          <span className="block text-[clamp(4.5rem,19vw,11rem)]">HAIR</span>
+          <span className="block text-[clamp(5rem,26vw,15rem)]">IKI</span>
         </h1>
 
         <p className="mt-8 font-display text-2xl italic text-cream/70 md:text-3xl">
