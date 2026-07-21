@@ -79,7 +79,7 @@ export function OptionPicker({ category, onAdd }: OptionPickerProps) {
           type="button"
           disabled={!selectedOption}
           onClick={() => selectedOption && onAdd(selectedOption.id)}
-          className="border border-clay px-8 py-3 text-sm uppercase tracking-[0.2em] text-clay transition-colors hover:bg-clay hover:text-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-clay disabled:cursor-not-allowed disabled:border-ink/20 disabled:text-muted disabled:hover:bg-transparent"
+          className="border border-clay px-8 py-3 text-sm uppercase tracking-[0.2em] text-clay transition hover:bg-clay hover:text-paper active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-clay disabled:cursor-not-allowed disabled:border-ink/20 disabled:text-muted disabled:hover:bg-transparent disabled:active:scale-100"
         >
           Add to estimate
         </button>

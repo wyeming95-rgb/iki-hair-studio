@@ -57,6 +57,24 @@ body {
 }
 
 /*
+ * Calculator category panel: a subtle fade when switching service tabs so
+ * the option list doesn't teleport. Opacity only (no movement) — it's a
+ * frequently-used control, so the motion stays minimal. Replays because the
+ * panel is keyed by category id and remounts. Reduced-motion zeroes it.
+ */
+@keyframes tabpanel-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.tabpanel-in {
+  animation: tabpanel-in 160ms var(--ease-out) both;
+}
+
+/*
  * `components/ui/Reveal.tsx` starts its wrapper at opacity: 0 and only
  * reveals via a useEffect + IntersectionObserver. With JavaScript disabled
  * or failed, that effect never runs and content stays permanently invisible

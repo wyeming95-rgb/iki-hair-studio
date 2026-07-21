@@ -41,10 +41,10 @@ export function EstimateSummary({ lines }: { lines: CartLine[] }) {
           rel="noopener noreferrer"
           aria-disabled={empty}
           onClick={(e) => empty && e.preventDefault()}
-          className={`flex-1 border px-8 py-4 text-center text-sm uppercase tracking-[0.2em] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
+          className={`flex-1 border px-8 py-4 text-center text-sm uppercase tracking-[0.2em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
             empty
               ? 'pointer-events-none border-ink/20 text-muted'
-              : 'border-clay bg-clay text-paper hover:bg-transparent hover:text-clay'
+              : 'border-clay bg-clay text-paper hover:bg-transparent hover:text-clay active:scale-[0.97]'
           }`}
         >
           Book on Tunai
@@ -55,10 +55,10 @@ export function EstimateSummary({ lines }: { lines: CartLine[] }) {
           rel="noopener noreferrer"
           aria-disabled={empty}
           onClick={(e) => empty && e.preventDefault()}
-          className={`flex-1 border px-8 py-4 text-center text-sm uppercase tracking-[0.2em] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
+          className={`flex-1 border px-8 py-4 text-center text-sm uppercase tracking-[0.2em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-clay ${
             empty
               ? 'pointer-events-none border-ink/20 text-muted'
-              : 'border-clay text-clay hover:bg-clay hover:text-paper'
+              : 'border-clay text-clay hover:bg-clay hover:text-paper active:scale-[0.97]'
           }`}
         >
           Send via WhatsApp

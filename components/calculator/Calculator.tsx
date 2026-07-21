@@ -49,9 +49,11 @@ export function Calculator() {
           onChange={setCategoryId}
         />
         <div
+          key={category.id}
           role="tabpanel"
           id="calculator-panel"
           aria-labelledby={`tab-${category.id}`}
+          className="tabpanel-in"
         >
           <OptionPicker category={category} onAdd={addOption} />
         </div>

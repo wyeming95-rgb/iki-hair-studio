@@ -44,7 +44,7 @@ export function Location() {
                 href={`https://wa.me/${site.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-ink px-8 py-3 text-center text-sm uppercase tracking-[0.2em] text-ink transition-colors hover:bg-ink hover:text-paper focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+                className="border border-ink px-8 py-3 text-center text-sm uppercase tracking-[0.2em] text-ink transition hover:bg-ink hover:text-paper active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
               >
                 WhatsApp {site.phoneDisplay}
               </a>
@@ -52,7 +52,7 @@ export function Location() {
                 href={site.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-ink bg-ink px-8 py-3 text-center text-sm uppercase tracking-[0.2em] text-paper transition-colors hover:bg-transparent hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+                className="border border-ink bg-ink px-8 py-3 text-center text-sm uppercase tracking-[0.2em] text-paper transition hover:bg-transparent hover:text-ink active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
               >
                 Book Now
               </a>

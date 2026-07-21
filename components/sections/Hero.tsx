@@ -38,13 +38,13 @@ export function Hero() {
               href={site.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-clay bg-clay px-10 py-4 text-sm uppercase tracking-[0.2em] text-paper transition-colors hover:bg-transparent hover:text-clay active:translate-y-px focus:outline-none focus-visible:ring-2 focus-visible:ring-cream"
+              className="border border-clay bg-clay px-10 py-4 text-sm uppercase tracking-[0.2em] text-paper transition hover:bg-transparent hover:text-clay active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-cream"
             >
               Book Now
             </a>
             <a
               href="#services"
-              className="border border-cream/40 px-10 py-4 text-sm uppercase tracking-[0.2em] text-cream transition-colors hover:border-cream hover:bg-cream hover:text-deep active:translate-y-px focus:outline-none focus-visible:ring-2 focus-visible:ring-cream"
+              className="border border-cream/40 px-10 py-4 text-sm uppercase tracking-[0.2em] text-cream transition hover:border-cream hover:bg-cream hover:text-deep active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-cream"
             >
               Estimate a price
             </a>

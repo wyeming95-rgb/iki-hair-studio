@@ -94,7 +94,7 @@ export function Nav() {
             data-cta
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-clay bg-clay px-5 py-2 text-xs uppercase tracking-[0.2em] text-paper transition-colors hover:bg-transparent hover:text-clay active:translate-y-px focus:outline-none focus-visible:ring-2 focus-visible:ring-clay"
+            className="border border-clay bg-clay px-5 py-2 text-xs uppercase tracking-[0.2em] text-paper transition hover:bg-transparent hover:text-clay active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-clay"
           >
             Book
           </a>
